@@ -2,6 +2,8 @@
     display: flex;
     max-width: 1000px;
     margin: 0 auto;
+    margin-top: 40px;
+    align-items: end;
 }
 
 .top_btn{
@@ -12,4 +14,32 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+.form_control{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.form_control input{
+    height: 48px;
+    padding: 0 8px;
+}
+
+.form_control label{
+    position: absolute;
+    top: -11px;
+    left: 10px;
+    background-color: white;
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.contact_form form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom:20px ;
 }
