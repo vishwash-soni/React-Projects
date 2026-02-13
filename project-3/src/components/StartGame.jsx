@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
-const StartGame = () => {
+import { Button } from "./styled/Button";
+const StartGame = ({toggle}) => {
   return (
     <Container>
       <div>
@@ -9,7 +9,7 @@ const StartGame = () => {
       <div className="content">
         <h1>DICE GAME</h1>
         <div className="playbtn">
-          <Button>Play Now</Button>
+          <Button onClick={toggle}>Play Now</Button>
         </div>
       </div>
     </Container>
@@ -38,25 +38,4 @@ const Container = styled.div`
   }
 `;
 
-const Button = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 18px;
-  gap: 10px;
 
-  width: 220px;
-  height: 44px;
-
-  background: #000000;
-  color: white;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: 0.2s background ease-in;
-  &:hover {
-    background-color: white;
-    color: black;
-    transition: 0.2s background ease-in;
-  }
-`;
