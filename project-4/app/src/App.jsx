@@ -1,33 +1,36 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { use } from "react";
+import SearchResultComponent from "./components/searchResult/SearchResultComponent";
 
-const BASE_URL = `http://localhost:9000/`;
+
+export const BASE_URL = `http://localhost:9000`;
+
 const App = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  setLoading(true);
-
   useEffect(() => {
     const fetchFoodData = async () => {
       try {
-        const response = await fetch(BASE_URL);
+        setLoading(true);
 
+        const response = await fetch(BASE_URL);
         const json = await response.json();
 
-        console.log(json);
         setData(json);
+      } catch (err) {
+        setError("Failed to fetch data");
+      } finally {
         setLoading(false);
-
-      } catch (error) {}
+      }
     };
+
     fetchFoodData();
-  },[] );
+  }, []);
 
   if (error) return <div>{error}</div>;
-  if (loading) return <div>loading...</div>;
+  if (loading) return <div>Loading...</div>;
 
   return (
     <Container>
@@ -39,20 +42,22 @@ const App = () => {
           <input type="text" placeholder="Search Food..." />
         </div>
       </TopContainer>
+
       <FilterContainer>
         <Button>All</Button>
         <Button>Breakfast</Button>
         <Button>Lunch</Button>
         <Button>Dinner</Button>
       </FilterContainer>
-      <FoodCardsContainer>
-        <FoodCards></FoodCards>
-      </FoodCardsContainer>
+
+      <SearchResultComponent data = {data}></SearchResultComponent>
+      
     </Container>
   );
 };
 
 export default App;
+
 
 const Container = styled.div`
   max-width: 100%;
@@ -92,7 +97,7 @@ const FilterContainer = styled.section`
   align-items: center;
   padding-bottom: 30px;
 `;
-const Button = styled.button`
+export const Button = styled.button`
   width: 96;
   height: 31;
   border-radius: 5px;
@@ -110,12 +115,4 @@ const Button = styled.button`
   color: white;
 `;
 
-const FoodCardsContainer = styled.section`
-  background-image: url("./bg.png");
-  background-size: cover;
-  height: calc(100vh - 200px);
-  background-position: center;
-  background-repeat: no-repeat;
-`;
 
-const FoodCards = styled.div``;
