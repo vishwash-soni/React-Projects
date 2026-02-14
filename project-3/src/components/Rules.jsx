@@ -35,4 +35,40 @@ const RulesContainer = styled.div`
     font-size: 16px;
     letter-spacing: 0%;
   }
+
+  @media (max-width: 820px) {
+    max-width: 500px;
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    li {
+      text-align: start;
+      line-height: 25px;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 16px;
+      letter-spacing: 0%;
+      list-style: circle;
+    }
+  }
+
+  @media (max-width: 570px) {
+    max-width: 300px;
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    ul {
+      padding: 0px;
+      text-align: center;
+    }
+    li {
+      line-height: 25px;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 16px;
+      letter-spacing: 0%;
+    }
+  }
 `;

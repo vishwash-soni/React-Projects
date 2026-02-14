@@ -91,4 +91,13 @@ const MainContainer = styled.div`
     justify-content:center;
     margin:20px 0px;
   }
+
+
+
+  @media (max-width: 820px){
+    .top_section {
+      flex-direction: column-reverse;
+      max-width:3000px
+  }
+  }
 `;

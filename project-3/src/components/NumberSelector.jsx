@@ -1,11 +1,11 @@
 import styled from "styled-components";
-const NumberSelector = ({setError, error, selectedNum, setSelectedNum }) => {
+const NumberSelector = ({ setError, error, selectedNum, setSelectedNum }) => {
   const nums = [1, 2, 3, 4, 5, 6];
 
-  const numberSelectorHandler = (value)=>{
-    selected(value)
+  const numberSelectorHandler = (value) => {
+    selected(value);
     setError("");
-  }
+  };
   const selected = (num) => {
     setSelectedNum(num);
   };
@@ -21,7 +21,7 @@ const NumberSelector = ({setError, error, selectedNum, setSelectedNum }) => {
           return (
             <Box
               isSelected={value === selectedNum}
-              onClick={()=>numberSelectorHandler(value)}
+              onClick={() => numberSelectorHandler(value)}
               key={idx}
             >
               {value}
@@ -44,6 +44,8 @@ const Box = styled.div`
   width: 72px;
   height: 72px;
 
+  
+
   background: white;
   color: black;
   border: 1px solid black;
@@ -61,13 +63,20 @@ const Box = styled.div`
   background-color: ${(props) =>
     props.isSelected === true ? "black" : "white"};
   color: ${(props) => (props.isSelected === true ? "white" : "black")};
+
+  @media(max-width: 620px) {
+    width: 32px;
+    height: 32px;
+  }
+
+  
 `;
 
 const NumberSelectorContainer = styled.div`
-    .error{
-        display:flex;
-        justify-content:end;
-    }
+  .error {
+    display: flex;
+    justify-content: end;
+  }
   .error p {
     font-weight: 400;
     font-style: Regular;
@@ -85,5 +94,17 @@ const NumberSelectorContainer = styled.div`
   p {
     font-size: 24px;
     font-weight: 700;
+  }
+
+
+  @media (max-width: 820px) {
+    .select_num {
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .error {
+    justify-content: center;
+  }
   }
 `;
