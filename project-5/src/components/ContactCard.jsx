@@ -1,8 +1,17 @@
 import { FaRegUser } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-
+import { collection, deleteDoc, doc } from "firebase/firestore";
+import { db } from "../config/firebase";
 const ContactCard = ({contacts}) => {
+  const deleteContact = async (id)=>{
+    try {
+      const deleteRef = doc(db, "contacts", id);
+      await deleteDoc(deleteRef);
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div>
         {
@@ -19,8 +28,8 @@ const ContactCard = ({contacts}) => {
 
               <div>
                 <div className="flex gap-1">
-                  <FaEdit className="text-3xl cursor-pointer"></FaEdit>
-                  <MdDelete className="text-3xl cursor-pointer text-purple-600"></MdDelete>
+                  <FaEdit  className="text-3xl cursor-pointer"></FaEdit>
+                 <MdDelete onClick={() => deleteContact(id)} className="text-3xl cursor-pointer text-purple-600" />
                 </div>
               </div>
             </div>

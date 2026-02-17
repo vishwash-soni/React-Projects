@@ -7,6 +7,7 @@ import ContactCard from "./components/ContactCard";
 import { db } from "./config/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Model from "./components/Model";
+import AddAndUpdate from "./components/AddAndUpdate";
 
 const App = () => {
 
@@ -58,12 +59,12 @@ const App = () => {
           <LuPlus onClick={onOpen} className="text-3xl"></LuPlus>
         </button>
       </div>
-
+      
       <ContactCard contacts={contacts}></ContactCard>
+      <AddAndUpdate isOpen={isOpen} onClose={onClose}></AddAndUpdate>
     </div>
 
-    <Model isOpen={isOpen} onClose={onClose}>hi</Model>
-
+    
     </>
   )
 }
