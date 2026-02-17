@@ -9,7 +9,7 @@ const Model = ({ onClose, isOpen, children }) => {
     <>
       {/* Modal Box */}
       <div className="fixed inset-0 flex items-center justify-center z-50">
-        <div className="relative bg-red-700 min-h-[300px] w-[300px] p-4 rounded-md">
+        <div className="relative bg-white min-h-[300px] w-[300px] p-4 rounded-md">
           <div className="flex justify-end">
             <IoClose 
               onClick={onClose} 
